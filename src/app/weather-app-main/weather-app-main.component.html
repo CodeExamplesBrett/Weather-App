@@ -1,10 +1,31 @@
-<div id="weather-main">
-    <div class="component-row">{{currentWeatherData.temp}}</div>
-    <div class="component-row">{{currentWeatherData.city}}</div>
-    <img src="./assets/img/{{currentWeatherData.icon}}.png">
-    
-    <div class="component-row"></div>
-    <div class="component-row"></div>
+<div class="weather-container">
+    <div id="weather-main-left">
+        <div class="component-row">{{currentWeatherData.temp}}°C</div>
+
+        <!-- ngIF first check to see if the icon code has been downloaded -->
+        <img *ngIf="currentWeatherData.icon" src="./assets/img/{{currentWeatherData.icon}}.png">
+        <div class="component-row">{{currentWeatherData.city}}</div>
+        <div class="component-row"></div>
+        <div class="component-row"></div>
+    </div>
+
+    <div id="weather-main-right">
+        <div class="overview">
+            <h3>5 Day Forecast</h3>
+            <ul *ngFor="let day of combo">
+                <li>
+                    <!-- pipe to show just the desired element of data format returned from the server -->
+                    {{ day[1].dt_txt | date: 'EEE, MMM dd' }}
+                    <!--<img src="./assets/img/{{day.weather[0].icon}}.png">
+                    <span>{{ day.main.temp_min | number: '1.0-0' }} / {{ day.main.temp_max | number: '1.0-0'}} </span>
+                    <span>{{ day.weather[0].main }}</span> -->
+                </li>
+            </ul>
+        </div>
+
+
+
+
+
+    </div>
 </div>
-
-
