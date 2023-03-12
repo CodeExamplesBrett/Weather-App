@@ -1,0 +1,20 @@
+
+@import '~weather-icons/css/weather-icons.css';
+
+#weather-main{
+    display: block;
+    border-radius: 10px;
+    width: 200px;
+    height: 220px;
+    background: rgb(190, 102, 102);
+    // background: linear-gradient(180deg, rgba(0,0,0,1) 0%, rgba(8,7,42,1));
+    color: white;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.component-row{
+    display: block;
+    //centers div
+    margin: 0 auto;
+    width: fit-content;
+}
