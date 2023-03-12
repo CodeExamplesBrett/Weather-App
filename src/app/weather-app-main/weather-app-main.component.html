@@ -16,9 +16,10 @@
                 <li>
                     <!-- pipe to show just the desired element of data format returned from the server -->
                     {{ day[1].dt_txt | date: 'EEE, MMM dd' }}
-                    <!--<img src="./assets/img/{{day.weather[0].icon}}.png">
-                    <span>{{ day.main.temp_min | number: '1.0-0' }} / {{ day.main.temp_max | number: '1.0-0'}} </span>
-                    <span>{{ day.weather[0].main }}</span> -->
+                    <img src="./assets/img/{{day[1].weather[0].icon}}.png">
+                    <span>{{ day[0].lowestMin | number: '1.0-0'}} / {{ day[0].highestMax | number: '1.0-0'}} </span>
+                    <span>{{ day[1].weather[0].main }}</span>
+                    
                 </li>
             </ul>
         </div>
