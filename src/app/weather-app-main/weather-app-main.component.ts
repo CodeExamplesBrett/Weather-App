@@ -8,13 +8,11 @@ interface WeatherData {
   };
   dt_txt: string;
 }
-
 interface Results {
   date: string;
   highestMax: number;
   lowestMin: number;
 }
-
 
 @Component({
   selector: 'app-weather-app-main',
@@ -24,7 +22,6 @@ interface Results {
 export class WeatherAppMainComponent implements OnInit {
 
   
-
   constructor() { }
 
   currentWeatherData:any;
@@ -34,15 +31,11 @@ export class WeatherAppMainComponent implements OnInit {
   fiveDayForecast:any = [];
   allForecastData:any = [];
   tempMaxMinData:any = [];
-
+  results: Results[] = [];
   combo:any = [];
-
   fiveDayForecastPopulated = false;
 
-  resultData = [];
 
-
-  
   ngOnInit(): void {
     this.currentWeatherData = {
       main : {}
@@ -53,16 +46,18 @@ export class WeatherAppMainComponent implements OnInit {
     
   }
 
-  getWeatherData(){
-    fetch(`http://api.openweathermap.org/data/2.5/weather?q=Munich&appid=${this.API_Key}&units=metric`)
-    .then(response =>response.json())
-    .then(data=>{this.setWeatherData(data);})
-    //let data = JSON.parse('{"coord":{"lon":151.2073,"lat":-33.8679},"weather":[{"id":803,"main":"Clouds","description":"broken clouds","icon":"04n"}],"base":"stations","main":{"temp":21.86,"feels_like":22.29,"temp_min":21.05,"temp_max":22.43,"pressure":1010,"humidity":84},"visibility":10000,"wind":{"speed":9.77,"deg":200},"clouds":{"all":75},"dt":1678561281,"sys":{"type":2,"id":2002865,"country":"AU","sunrise":1678564292,"sunset":1678609137},"timezone":39600,"id":2147714,"name":"Sydney","cod":200}')
-    //this.setWeatherData(data:any)
-    fetch(`http://api.openweathermap.org/data/2.5/forecast?q=Munich&appid=${this.API_Key}&units=metric`)
-    .then(response_2 =>response_2.json())
-    .then(data_2=>{this.setForecastData(data_2);})
-
+  async getWeatherData() {
+    try {
+      const response = await fetch(`http://api.openweathermap.org/data/2.5/weather?q=Munich&appid=${this.API_Key}&units=metric`);
+      const data = await response.json();
+      this.setWeatherData(data);
+  
+      const response_2 = await fetch(`http://api.openweathermap.org/data/2.5/forecast?q=Munich&appid=${this.API_Key}&units=metric`);
+      const data_2 = await response_2.json();
+      this.setForecastData(data_2);
+    } catch (error) {
+      console.error(error);
+    }
   }
 
   setWeatherData(data){
@@ -76,26 +71,20 @@ export class WeatherAppMainComponent implements OnInit {
     console.log(this.currentWeatherData.icon);
   }
 
-  async setForecastData(data_2){
+  setForecastData(data_2){
     this.forecastData = data_2;
-    
     // clear the array
     this.fiveDayForecast = [];
     // .list is used here because we can't get the length of an object muss be an array...
-    
-
     //all forecast data
     for (let i = 0; i < this.forecastData.list.length; i++) {
       this.allForecastData.push(this.forecastData.list[i]);
     }
-
-    await this.fiveDayData();
+    
+    this.fiveDayData();
     this.selectData();
     
-    console.log('forecast', this.forecastData);
-
-    
-    
+    console.log('forecast', this.forecastData)
   }
 
   fiveDayData(){
@@ -115,14 +104,17 @@ export class WeatherAppMainComponent implements OnInit {
       let readingDate = this.allForecastData[i].dt_txt;
 
       let tempJson = {temp_min: tmin, temp_max: tmax}
-      
       let readingDateJson = {main: tempJson, dt_txt: readingDate}
+
       this.tempMaxMinData.push(readingDateJson);
-      
       
     }
     console.log('data out', this.tempMaxMinData)
     this.results = this.findHighestMaxAndLowestMin(this.tempMaxMinData);
+    // calculated max / min restricted to 5 days
+    if(this.results.length >= 6){
+      this.results.pop();
+    }
     
     console.log('the reults', this.results);
     this.combineData();
@@ -139,11 +131,6 @@ export class WeatherAppMainComponent implements OnInit {
   }
 
 
-
-  results: Results[] = [];
-
-  //results: Results[] = this.findHighestMaxAndLowestMin(this.data);
-
   findHighestMaxAndLowestMin(tempMaxMinData: WeatherData[]): Results[] {
     const results: Results[] = [];
 
@@ -154,15 +141,15 @@ export class WeatherAppMainComponent implements OnInit {
 
     // Loop through the weather data
     for (const datum of tempMaxMinData) {
-      const date = datum.dt_txt.slice(0, 10); // Extract the date from the date-time string
+      const date = datum.dt_txt.slice(0, 10); // Extract the date from the date-time string.. first 10char
 
       if (date !== currentDate) {
-        // If the date has changed, push the previous day's results into the array
-        if (currentDate) {
+        // If the date has changed, push the previous day's results into the array.. initally undef 
+        if (currentDate) {  //only run if currentDate is not undefined
           results.push({
             date: currentDate,
-            highestMax: highestMax!,
-            lowestMin: lowestMin!,
+            highestMax: highestMax,
+            lowestMin: lowestMin,
           });
         }
 
@@ -185,8 +172,8 @@ export class WeatherAppMainComponent implements OnInit {
     if (currentDate) {
       results.push({
         date: currentDate,
-        highestMax: highestMax!,
-        lowestMin: lowestMin!,
+        highestMax: highestMax,
+        lowestMin: lowestMin,
       });
     }
 

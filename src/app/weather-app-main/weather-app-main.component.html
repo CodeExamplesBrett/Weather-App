@@ -12,8 +12,8 @@
     <div id="weather-main-right">
         <div class="overview">
             <h3>5 Day Forecast</h3>
-            <ul *ngFor="let day of combo">
-                <li>
+            <ul *ngIf="combo.length">
+                <li *ngFor="let day of combo">
                     <!-- pipe to show just the desired element of data format returned from the server -->
                     {{ day[1].dt_txt | date: 'EEE, MMM dd' }}
                     <img src="./assets/img/{{day[1].weather[0].icon}}.png">
