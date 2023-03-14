@@ -1,0 +1,1733 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>weather-app documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../" class="navbar-brand">weather-app documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li>Components</li>
+  <li
+  >
+  WeatherAppMainComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li >
+            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li >
+            <a href="#templateData" role="tab" id="templateData-tab" data-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li >
+            <a href="#styleData" role="tab" id="styleData-tab" data-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li >
+            <a href="#tree" role="tab" id="tree-tab" data-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="c-info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/weather-app-main/weather-app-main.component.ts</code>
+</p>
+
+
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                    <code><a href="https://angular.io/api/core/OnInit" target="_blank" >OnInit</a></code>
+    </p>
+
+
+<section>
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-weather-app-main</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./weather-app-main.component.scss</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./weather-app-main.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#allForecastData" >allForecastData</a>
+                            </li>
+                            <li>
+                                <a href="#API_Key" >API_Key</a>
+                            </li>
+                            <li>
+                                <a href="#combo" >combo</a>
+                            </li>
+                            <li>
+                                <a href="#currentDate" >currentDate</a>
+                            </li>
+                            <li>
+                                <a href="#currentWeatherData" >currentWeatherData</a>
+                            </li>
+                            <li>
+                                <a href="#fiveDayForecast" >fiveDayForecast</a>
+                            </li>
+                            <li>
+                                <a href="#fiveDayForecastPopulated" >fiveDayForecastPopulated</a>
+                            </li>
+                            <li>
+                                <a href="#forecastData" >forecastData</a>
+                            </li>
+                            <li>
+                                <a href="#highestMax" >highestMax</a>
+                            </li>
+                            <li>
+                                <a href="#lowestMin" >lowestMin</a>
+                            </li>
+                            <li>
+                                <a href="#results" >results</a>
+                            </li>
+                            <li>
+                                <a href="#tempMaxMinData" >tempMaxMinData</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#combineData" >combineData</a>
+                            </li>
+                            <li>
+                                <a href="#extractDate" >extractDate</a>
+                            </li>
+                            <li>
+                                <a href="#findHighestMaxAndLowestMin" >findHighestMaxAndLowestMin</a>
+                            </li>
+                            <li>
+                                <a href="#fiveDayData" >fiveDayData</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#getWeatherData" >getWeatherData</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnInit" >ngOnInit</a>
+                            </li>
+                            <li>
+                                <a href="#pushResults" >pushResults</a>
+                            </li>
+                            <li>
+                                <a href="#selectData" >selectData</a>
+                            </li>
+                            <li>
+                                <a href="#setForecastData" >setForecastData</a>
+                            </li>
+                            <li>
+                                <a href="#setWeatherData" >setWeatherData</a>
+                            </li>
+                            <li>
+                                <a href="#updateHighestMaxLowestMin" >updateHighestMaxLowestMin</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor()</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="8" class="link-to-prism">src/app/weather-app-main/weather-app-main.component.ts:8</a></div>
+                            </td>
+                        </tr>
+
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+    <section>
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="combineData"></a>
+                    <span class="name">
+                        <span ><b>combineData</b></span>
+                        <a href="#combineData"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>combineData()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="133"
+                            class="link-to-prism">src/app/weather-app-main/weather-app-main.component.ts:133</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>This function combines the arrays results and fiveDayForecast so that the resultant array
+can be used in *ngFor loop in weather-app-main.component.html</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="extractDate"></a>
+                    <span class="name">
+                        <span ><b>extractDate</b></span>
+                        <a href="#extractDate"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>extractDate(dateTimeString)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="185"
+                            class="link-to-prism">src/app/weather-app-main/weather-app-main.component.ts:185</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>This function returns just the relevant date data required for comparision.</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>dateTimeString</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="findHighestMaxAndLowestMin"></a>
+                    <span class="name">
+                        <span ><b>findHighestMaxAndLowestMin</b></span>
+                        <a href="#findHighestMaxAndLowestMin"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>findHighestMaxAndLowestMin(tempMaxMinData, currentDate, highestMax, lowestMin)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="153"
+                            class="link-to-prism">src/app/weather-app-main/weather-app-main.component.ts:153</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>This function finds the lowest min temperature and highest Max temperature for each day
+currentDate, highestMax, lowestMin are initially undefined (declared above)</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Optional</td>
+                                    <td>Description</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>tempMaxMinData</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>currentDate</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>| undefined;</p>
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>highestMax</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>| undefined;</p>
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>lowestMin</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>| undefined;</p>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>{}</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="fiveDayData"></a>
+                    <span class="name">
+                        <span ><b>fiveDayData</b></span>
+                        <a href="#fiveDayData"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>fiveDayData()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="93"
+                            class="link-to-prism">src/app/weather-app-main/weather-app-main.component.ts:93</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>This function selects the first record of each date for the forecast data
+then pushes the resultant records to the array fiveDayForecast</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getWeatherData"></a>
+                    <span class="name">
+                        <span class="modifier">Async</span>
+                        <span ><b>getWeatherData</b></span>
+                        <a href="#getWeatherData"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>getWeatherData()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="37"
+                            class="link-to-prism">src/app/weather-app-main/weather-app-main.component.ts:37</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>This function fetches weather data (todays &amp; forcast) from the openweathermap API</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <span ><b>ngOnInit</b></span>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="29"
+                            class="link-to-prism">src/app/weather-app-main/weather-app-main.component.ts:29</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="pushResults"></a>
+                    <span class="name">
+                        <span ><b>pushResults</b></span>
+                        <a href="#pushResults"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>pushResults(results, currentDate, highestMax, lowestMin)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="197"
+                            class="link-to-prism">src/app/weather-app-main/weather-app-main.component.ts:197</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>This function pushes the Calculated days result to the results array</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>results</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>currentDate</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>highestMax</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>lowestMin</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="selectData"></a>
+                    <span class="name">
+                        <span ><b>selectData</b></span>
+                        <a href="#selectData"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>selectData()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="107"
+                            class="link-to-prism">src/app/weather-app-main/weather-app-main.component.ts:107</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>This function selects out only the relevant data needed to calculate the
+highest Max and lowest Min for each date... carried out in
+subsequent function: findHighestMaxAndLowestMin() called here.</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="setForecastData"></a>
+                    <span class="name">
+                        <span ><b>setForecastData</b></span>
+                        <a href="#setForecastData"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>setForecastData(data_2)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="73"
+                            class="link-to-prism">src/app/weather-app-main/weather-app-main.component.ts:73</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>This function pushes the fetched forecast data to the array &quot;allForecastData&quot;
+then calls the next functions required to format the data</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>data_2</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="setWeatherData"></a>
+                    <span class="name">
+                        <span ><b>setWeatherData</b></span>
+                        <a href="#setWeatherData"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>setWeatherData(data)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="56"
+                            class="link-to-prism">src/app/weather-app-main/weather-app-main.component.ts:56</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>This function selects weather data for display for today</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>data</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="updateHighestMaxLowestMin"></a>
+                    <span class="name">
+                        <span ><b>updateHighestMaxLowestMin</b></span>
+                        <a href="#updateHighestMaxLowestMin"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>updateHighestMaxLowestMin(currentMaxMin: literal type, record)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="213"
+                            class="link-to-prism">src/app/weather-app-main/weather-app-main.component.ts:213</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>This function compares current highest and lowest values for the day with record from the loop
+if they are the lowest or highest the corresponding current high or low is updated.</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>currentMaxMin</td>
+                                    <td>
+                                            <code>literal type</code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>record</td>
+                                    <td>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>literal type</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section>
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="allForecastData"></a>
+                    <span class="name">
+                        <span ><b>allForecastData</b></span>
+                        <a href="#allForecastData"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">src/app/weather-app-main/weather-app-main.component.ts:17</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="API_Key"></a>
+                    <span class="name">
+                        <span ><b>API_Key</b></span>
+                        <a href="#API_Key"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;77c680e8479d51757112c4f74394323f&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">src/app/weather-app-main/weather-app-main.component.ts:14</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="combo"></a>
+                    <span class="name">
+                        <span ><b>combo</b></span>
+                        <a href="#combo"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">src/app/weather-app-main/weather-app-main.component.ts:20</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="currentDate"></a>
+                    <span class="name">
+                        <span ><b>currentDate</b></span>
+                        <a href="#currentDate"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>string | undefined</code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">src/app/weather-app-main/weather-app-main.component.ts:24</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="currentWeatherData"></a>
+                    <span class="name">
+                        <span ><b>currentWeatherData</b></span>
+                        <a href="#currentWeatherData"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{}</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="11" class="link-to-prism">src/app/weather-app-main/weather-app-main.component.ts:11</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="fiveDayForecast"></a>
+                    <span class="name">
+                        <span ><b>fiveDayForecast</b></span>
+                        <a href="#fiveDayForecast"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/app/weather-app-main/weather-app-main.component.ts:16</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="fiveDayForecastPopulated"></a>
+                    <span class="name">
+                        <span ><b>fiveDayForecastPopulated</b></span>
+                        <a href="#fiveDayForecastPopulated"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">src/app/weather-app-main/weather-app-main.component.ts:22</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="forecastData"></a>
+                    <span class="name">
+                        <span ><b>forecastData</b></span>
+                        <a href="#forecastData"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{}</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">src/app/weather-app-main/weather-app-main.component.ts:12</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="highestMax"></a>
+                    <span class="name">
+                        <span ><b>highestMax</b></span>
+                        <a href="#highestMax"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>number | undefined</code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">src/app/weather-app-main/weather-app-main.component.ts:25</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="lowestMin"></a>
+                    <span class="name">
+                        <span ><b>lowestMin</b></span>
+                        <a href="#lowestMin"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>number | undefined</code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">src/app/weather-app-main/weather-app-main.component.ts:26</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="results"></a>
+                    <span class="name">
+                        <span ><b>results</b></span>
+                        <a href="#results"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">src/app/weather-app-main/weather-app-main.component.ts:19</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="tempMaxMinData"></a>
+                    <span class="name">
+                        <span ><b>tempMaxMinData</b></span>
+                        <a href="#tempMaxMinData"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">src/app/weather-app-main/weather-app-main.component.ts:18</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="c-source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit } from &#x27;@angular/core&#x27;;
+
+@Component({
+  selector: &#x27;app-weather-app-main&#x27;,
+  templateUrl: &#x27;./weather-app-main.component.html&#x27;,
+  styleUrls: [&#x27;./weather-app-main.component.scss&#x27;]
+})
+export class WeatherAppMainComponent implements OnInit {
+  constructor() { }
+
+  currentWeatherData:any &#x3D;{};
+  forecastData:any &#x3D; {};
+
+  API_Key &#x3D; &#x27;77c680e8479d51757112c4f74394323f&#x27;
+
+  fiveDayForecast:any &#x3D; [];
+  allForecastData:any &#x3D; [];
+  tempMaxMinData:any &#x3D; [];
+  results:any &#x3D; [];
+  combo:any &#x3D; [];
+
+  fiveDayForecastPopulated &#x3D; false;
+
+  currentDate: string | undefined;
+  highestMax: number | undefined;
+  lowestMin: number | undefined;
+  
+
+  ngOnInit(): void {
+    this.getWeatherData();
+  }
+
+
+ /**
+  * This function fetches weather data (todays &amp; forcast) from the openweathermap API
+  */
+  async getWeatherData() {
+    try {
+      const response &#x3D; await fetch(&#x60;http://api.openweathermap.org/data/2.5/weather?q&#x3D;Munich&amp;appid&#x3D;${this.API_Key}&amp;units&#x3D;metric&#x60;);
+      const data &#x3D; await response.json();
+      this.setWeatherData(data);
+  
+      const response_2 &#x3D; await fetch(&#x60;http://api.openweathermap.org/data/2.5/forecast?q&#x3D;Munich&amp;appid&#x3D;${this.API_Key}&amp;units&#x3D;metric&#x60;);
+      const data_2 &#x3D; await response_2.json();
+      this.setForecastData(data_2);
+    } catch (error) {
+      console.error(error);
+    }
+  }
+
+
+  /**
+   * This function selects weather data for display for today
+   * @param {object} data 
+   */
+  setWeatherData(data){
+    this.currentWeatherData &#x3D; data;
+    this.currentWeatherData.temp &#x3D; this.currentWeatherData.main.temp.toFixed(0);
+    this.currentWeatherData.city &#x3D; this.currentWeatherData.name;
+    this.currentWeatherData.icon &#x3D; this.currentWeatherData.weather[0].icon;
+
+    console.log(&#x27;temp&#x27;, this.currentWeatherData.temp)
+    console.log(&#x27;all weather&#x27;,this.currentWeatherData);
+    console.log(&#x27;icon&#x27;, this.currentWeatherData.icon);
+  }
+
+
+  /**
+   * This function pushes the fetched forecast data to the array &quot;allForecastData&quot;
+   * then calls the next functions required to format the data
+   * @param {object} data_2
+   */
+  setForecastData(data_2){
+    this.forecastData &#x3D; data_2;
+    // clear the array
+    this.fiveDayForecast &#x3D; [];
+    // .list is used here because we can&#x27;t get the length of an object muss be an array...
+    //all forecast data
+    for (let i &#x3D; 0; i &lt; this.forecastData.list.length; i++) {
+      this.allForecastData.push(this.forecastData.list[i]);
+    }
+    this.fiveDayData();
+    this.selectData();
+    this.combineData();
+    console.log(&#x27;forecast&#x27;, this.forecastData)
+  }
+
+
+  /**
+   * This function selects the first record of each date for the forecast data
+   * then pushes the resultant records to the array fiveDayForecast
+   */
+  fiveDayData(){
+    for (let i &#x3D; 0; i &lt; this.forecastData.list.length; i&#x3D; i + 8) {
+      this.fiveDayForecast.push(this.forecastData.list[i] );
+    }
+    this.fiveDayForecastPopulated &#x3D; true;
+    console.log(&#x27;5day&#x27;, this.fiveDayForecast)
+  }
+
+
+  /**
+   * This function selects out only the relevant data needed to calculate the
+   * highest Max and lowest Min for each date... carried out in 
+   * subsequent function: findHighestMaxAndLowestMin() called here.
+   */
+  selectData(){
+    for (let i &#x3D; 0; i &lt; this.allForecastData.length; i++) {
+      let tmax &#x3D; this.allForecastData[i].main.temp_max;
+      let tmin &#x3D; this.allForecastData[i].main.temp_min;
+      let readingDate &#x3D; this.allForecastData[i].dt_txt;
+
+      let tempJson &#x3D; {temp_min: tmin, temp_max: tmax}
+      let readingDateJson &#x3D; {main: tempJson, dt_txt: readingDate}
+
+      this.tempMaxMinData.push(readingDateJson);
+      
+    }
+    console.log(&#x27;data out&#x27;, this.tempMaxMinData)
+    this.results &#x3D; this.findHighestMaxAndLowestMin(this.tempMaxMinData, this.currentDate, this.highestMax, this.lowestMin );
+    // calculated max / min restricted to 5 days .. depending on the time of day 5 or 6 results could be generated
+    if(this.results.length &gt;&#x3D; 6){
+      this.results.pop();
+    }
+    console.log(&#x27;the reults&#x27;, this.results);
+  }
+
+
+  /**
+   * This function combines the arrays results and fiveDayForecast so that the resultant array
+   * can be used in *ngFor loop in weather-app-main.component.html
+   */
+  combineData(){
+    if (this.fiveDayForecastPopulated){
+      this.combo &#x3D; this.results.map((el, index) &#x3D;&gt; [el, this.fiveDayForecast[index]]);
+      console.log(&#x27;the combo&#x27;, this.combo)
+    } else {
+      console.log(&#x27;fiveDayForecast not populated yet&#x27;)
+    }
+    
+  }
+
+
+  /**
+   * This function finds the lowest min temperature and highest Max temperature for each day
+   * currentDate, highestMax, lowestMin are initially undefined (declared above)
+   * @param {array} tempMaxMinData 
+   * @param {string} currentDate | undefined;
+   * @param {number} highestMax | undefined;
+   * @param {number} lowestMin | undefined;
+   * @returns 
+   */
+  findHighestMaxAndLowestMin(tempMaxMinData, currentDate, highestMax, lowestMin ) {
+    //reset results array
+    const results &#x3D; [];
+    for (const record of tempMaxMinData) {
+      const date &#x3D; this.extractDate(record.dt_txt);
+      if (date !&#x3D;&#x3D; currentDate) {
+        // If the date has changed, push the previous day&#x27;s results into the array.. initally undef 
+        if (currentDate) {
+          this.pushResults(results, currentDate, highestMax, lowestMin);
+        }
+        // Reset the variables for the new day
+        currentDate &#x3D; date;
+        highestMax &#x3D; undefined;
+        lowestMin &#x3D; undefined;
+      }
+      const currentMaxMin &#x3D; this.updateHighestMaxLowestMin({highestMax, lowestMin}, record);
+      highestMax &#x3D; currentMaxMin.highestMax;
+      lowestMin &#x3D; currentMaxMin.lowestMin;
+    }
+    // Push the results for the last day as there is no other date for comparision (outside of for loop)
+    if (currentDate) {
+      this.pushResults(results, currentDate, highestMax, lowestMin);
+    }
+    return results;
+  }
+
+
+  /**
+   * This function returns just the relevant date data required for comparision.
+   * @param {string} dateTimeString 
+   * @returns 
+   */
+  extractDate(dateTimeString) {
+    return dateTimeString.slice(0, 10);
+  }
+
+
+/**
+ * This function pushes the Calculated days result to the results array
+ * @param {array} results 
+ * @param {string} currentDate
+ * @param {number} highestMax 
+ * @param {number} lowestMin  
+ */
+  pushResults(results, currentDate, highestMax, lowestMin) {
+    results.push({
+      date: currentDate,
+      highestMax: highestMax,
+      lowestMin: lowestMin,
+    });
+  }
+
+
+  /**
+   * This function compares current highest and lowest values for the day with record from the loop 
+   * if they are the lowest or highest the corresponding current high or low is updated.
+   * @param {object} currentMaxMin 
+   * @param {object} record 
+   * @returns 
+   */
+  updateHighestMaxLowestMin(currentMaxMin: {highestMax, lowestMin}, record): {highestMax, lowestMin} {
+    const highestMax &#x3D; currentMaxMin.highestMax &#x3D;&#x3D;&#x3D; undefined || record.main.temp_max &gt; currentMaxMin.highestMax
+      ? record.main.temp_max
+      : currentMaxMin.highestMax;
+    const lowestMin &#x3D; currentMaxMin.lowestMin &#x3D;&#x3D;&#x3D; undefined || record.main.temp_min &lt; currentMaxMin.lowestMin
+      ? record.main.temp_min
+      : currentMaxMin.lowestMin;
+
+    return {highestMax, lowestMin};
+  }
+
+  
+}
+
+
+
+
+ 
+
+
+
+  
+
+
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;weather-container&quot;&gt;
+    &lt;div id&#x3D;&quot;weather-main-left&quot;&gt;
+        &lt;div class&#x3D;&quot;component-row&quot;&gt;{{currentWeatherData.temp}}°C&lt;/div&gt;
+
+        &lt;!-- ngIF first check to see if the icon code has been downloaded --&gt;
+        &lt;img *ngIf&#x3D;&quot;currentWeatherData.icon&quot; src&#x3D;&quot;./assets/img/{{currentWeatherData.icon}}.png&quot;&gt;
+        &lt;div class&#x3D;&quot;component-row&quot;&gt;{{currentWeatherData.city}}&lt;/div&gt;
+        &lt;div class&#x3D;&quot;component-row&quot;&gt;&lt;/div&gt;
+        &lt;div class&#x3D;&quot;component-row&quot;&gt;&lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;div id&#x3D;&quot;weather-main-right&quot;&gt;
+        &lt;div class&#x3D;&quot;overview&quot;&gt;
+            &lt;h3&gt;5 Day Forecast&lt;/h3&gt;
+            &lt;ul *ngIf&#x3D;&quot;combo.length&quot;&gt;
+                &lt;li *ngFor&#x3D;&quot;let day of combo&quot;&gt;
+                    &lt;!-- pipe to show just the desired element of data format returned from the server --&gt;
+                    {{ day[1].dt_txt | date: &#x27;EEE, MMM dd&#x27; }}
+                    &lt;img src&#x3D;&quot;./assets/img/{{day[1].weather[0].icon}}.png&quot;&gt;
+                    &lt;span&gt;{{ day[0].lowestMin | number: &#x27;1.0-0&#x27;}} / {{ day[0].highestMax | number: &#x27;1.0-0&#x27;}} &lt;/span&gt;
+                    &lt;span&gt;{{ day[1].weather[0].main }}&lt;/span&gt;
+                    
+                &lt;/li&gt;
+            &lt;/ul&gt;
+        &lt;/div&gt;
+
+
+
+
+
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-styleData">
+                <p class="comment">
+                    <code>./weather-app-main.component.scss</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">
+@import &#x27;~weather-icons/css/weather-icons.css&#x27;;
+
+#weather-main-left{
+    display: block;
+    margin-left: 30px;
+    border-radius: 10px;
+    width: 200px;
+    height: 220px;
+    background: rgb(190, 102, 102);
+    // background: linear-gradient(180deg, rgba(0,0,0,1) 0%, rgba(8,7,42,1));
+    color: white;
+    font-family: &#x27;Segoe UI&#x27;, Tahoma, Geneva, Verdana, sans-serif;
+}
+
+#weather-main-right{
+    display: block;
+    margin-left: 30px;
+    border-radius: 10px;
+    width: 800px;
+    height: 800px;
+    background: rgb(218, 211, 211);
+    // background: linear-gradient(180deg, rgba(0,0,0,1) 0%, rgba(8,7,42,1));
+    color: white;
+    font-family: &#x27;Segoe UI&#x27;, Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.component-row{
+    display: block;
+    //centers div
+    margin: 0 auto;
+    width: fit-content;
+}
+
+.weather-container{
+    display: flex;
+    
+}</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><div class="weather-container">    <div id="weather-main-left">        <div class="component-row">{{currentWeatherData.temp}}°C</div>        <!-- ngIF first check to see if the icon code has been downloaded -->        <img *ngIf="currentWeatherData.icon" src="./assets/img/{{currentWeatherData.icon}}.png">        <div class="component-row">{{currentWeatherData.city}}</div>        <div class="component-row"></div>        <div class="component-row"></div>    </div>    <div id="weather-main-right">        <div class="overview">            <h3>5 Day Forecast</h3>            <ul *ngIf="combo.length">                <li *ngFor="let day of combo">                    <!-- pipe to show just the desired element of data format returned from the server -->                    {{ day[1].dt_txt | date: \'EEE, MMM dd\' }}                    <img src="./assets/img/{{day[1].weather[0].icon}}.png">                    <span>{{ day[0].lowestMin | number: \'1.0-0\'}} / {{ day[0].highestMax | number: \'1.0-0\'}} </span>                    <span>{{ day[1].weather[0].main }}</span>                                    </li>            </ul>        </div>    </div></div></div>'
+    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'WeatherAppMainComponent', 'selector': 'app-weather-app-main'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'WeatherAppMainComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'WeatherAppMainComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

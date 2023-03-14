@@ -1,51 +1,39 @@
 import { Component, OnInit } from '@angular/core';
 
-interface WeatherData {
-  main: {
-    temp_max: number;
-    temp_min: number;
-    
-  };
-  dt_txt: string;
-}
-interface Results {
-  date: string;
-  highestMax: number;
-  lowestMin: number;
-}
-
 @Component({
   selector: 'app-weather-app-main',
   templateUrl: './weather-app-main.component.html',
   styleUrls: ['./weather-app-main.component.scss']
 })
 export class WeatherAppMainComponent implements OnInit {
-
-  
   constructor() { }
 
-  currentWeatherData:any;
-  forecastData:any;
+  currentWeatherData:any ={};
+  forecastData:any = {};
+
   API_Key = '77c680e8479d51757112c4f74394323f'
 
   fiveDayForecast:any = [];
   allForecastData:any = [];
   tempMaxMinData:any = [];
-  results: Results[] = [];
+  results:any = [];
   combo:any = [];
+
   fiveDayForecastPopulated = false;
 
+  currentDate: string | undefined;
+  highestMax: number | undefined;
+  lowestMin: number | undefined;
+  
 
   ngOnInit(): void {
-    this.currentWeatherData = {
-      main : {}
-    }
-    this.forecastData = {}
     this.getWeatherData();
-    console.log(this.currentWeatherData);
-    
   }
 
+
+ /**
+  * This function fetches weather data (todays & forcast) from the openweathermap API
+  */
   async getWeatherData() {
     try {
       const response = await fetch(`http://api.openweathermap.org/data/2.5/weather?q=Munich&appid=${this.API_Key}&units=metric`);
@@ -60,17 +48,28 @@ export class WeatherAppMainComponent implements OnInit {
     }
   }
 
+
+  /**
+   * This function selects weather data for display for today
+   * @param {object} data 
+   */
   setWeatherData(data){
     this.currentWeatherData = data;
     this.currentWeatherData.temp = this.currentWeatherData.main.temp.toFixed(0);
     this.currentWeatherData.city = this.currentWeatherData.name;
     this.currentWeatherData.icon = this.currentWeatherData.weather[0].icon;
 
-    console.log(this.currentWeatherData.temp)
-    console.log(this.currentWeatherData);
-    console.log(this.currentWeatherData.icon);
+    console.log('temp', this.currentWeatherData.temp)
+    console.log('all weather',this.currentWeatherData);
+    console.log('icon', this.currentWeatherData.icon);
   }
 
+
+  /**
+   * This function pushes the fetched forecast data to the array "allForecastData"
+   * then calls the next functions required to format the data
+   * @param {object} data_2
+   */
   setForecastData(data_2){
     this.forecastData = data_2;
     // clear the array
@@ -80,13 +79,17 @@ export class WeatherAppMainComponent implements OnInit {
     for (let i = 0; i < this.forecastData.list.length; i++) {
       this.allForecastData.push(this.forecastData.list[i]);
     }
-    
     this.fiveDayData();
     this.selectData();
-    
+    this.combineData();
     console.log('forecast', this.forecastData)
   }
 
+
+  /**
+   * This function selects the first record of each date for the forecast data
+   * then pushes the resultant records to the array fiveDayForecast
+   */
   fiveDayData(){
     for (let i = 0; i < this.forecastData.list.length; i= i + 8) {
       this.fiveDayForecast.push(this.forecastData.list[i] );
@@ -95,8 +98,12 @@ export class WeatherAppMainComponent implements OnInit {
     console.log('5day', this.fiveDayForecast)
   }
 
-  
 
+  /**
+   * This function selects out only the relevant data needed to calculate the
+   * highest Max and lowest Min for each date... carried out in 
+   * subsequent function: findHighestMaxAndLowestMin() called here.
+   */
   selectData(){
     for (let i = 0; i < this.allForecastData.length; i++) {
       let tmax = this.allForecastData[i].main.temp_max;
@@ -110,16 +117,19 @@ export class WeatherAppMainComponent implements OnInit {
       
     }
     console.log('data out', this.tempMaxMinData)
-    this.results = this.findHighestMaxAndLowestMin(this.tempMaxMinData);
-    // calculated max / min restricted to 5 days
+    this.results = this.findHighestMaxAndLowestMin(this.tempMaxMinData, this.currentDate, this.highestMax, this.lowestMin );
+    // calculated max / min restricted to 5 days .. depending on the time of day 5 or 6 results could be generated
     if(this.results.length >= 6){
       this.results.pop();
     }
-    
     console.log('the reults', this.results);
-    this.combineData();
   }
 
+
+  /**
+   * This function combines the arrays results and fiveDayForecast so that the resultant array
+   * can be used in *ngFor loop in weather-app-main.component.html
+   */
   combineData(){
     if (this.fiveDayForecastPopulated){
       this.combo = this.results.map((el, index) => [el, this.fiveDayForecast[index]]);
@@ -131,54 +141,87 @@ export class WeatherAppMainComponent implements OnInit {
   }
 
 
-  findHighestMaxAndLowestMin(tempMaxMinData: WeatherData[]): Results[] {
-    const results: Results[] = [];
-
-    // Initialize variables to hold the highest max and lowest min for each day
-    let currentDate: string | undefined;
-    let highestMax: number | undefined;
-    let lowestMin: number | undefined;
-
-    // Loop through the weather data
-    for (const datum of tempMaxMinData) {
-      const date = datum.dt_txt.slice(0, 10); // Extract the date from the date-time string.. first 10char
-
+  /**
+   * This function finds the lowest min temperature and highest Max temperature for each day
+   * currentDate, highestMax, lowestMin are initially undefined (declared above)
+   * @param {array} tempMaxMinData 
+   * @param {string} currentDate | undefined;
+   * @param {number} highestMax | undefined;
+   * @param {number} lowestMin | undefined;
+   * @returns 
+   */
+  findHighestMaxAndLowestMin(tempMaxMinData, currentDate, highestMax, lowestMin ) {
+    //reset results array
+    const results = [];
+    for (const record of tempMaxMinData) {
+      const date = this.extractDate(record.dt_txt);
       if (date !== currentDate) {
         // If the date has changed, push the previous day's results into the array.. initally undef 
-        if (currentDate) {  //only run if currentDate is not undefined
-          results.push({
-            date: currentDate,
-            highestMax: highestMax,
-            lowestMin: lowestMin,
-          });
+        if (currentDate) {
+          this.pushResults(results, currentDate, highestMax, lowestMin);
         }
-
         // Reset the variables for the new day
         currentDate = date;
         highestMax = undefined;
         lowestMin = undefined;
       }
-
-      // Update the highest max and lowest min for the current day
-      if (highestMax === undefined || datum.main.temp_max > highestMax) {
-        highestMax = datum.main.temp_max;
-      }
-      if (lowestMin === undefined || datum.main.temp_min < lowestMin) {
-        lowestMin = datum.main.temp_min;
-      }
+      const currentMaxMin = this.updateHighestMaxLowestMin({highestMax, lowestMin}, record);
+      highestMax = currentMaxMin.highestMax;
+      lowestMin = currentMaxMin.lowestMin;
     }
-
-    // Push the results for the last day
+    // Push the results for the last day as there is no other date for comparision (outside of for loop)
     if (currentDate) {
-      results.push({
-        date: currentDate,
-        highestMax: highestMax,
-        lowestMin: lowestMin,
-      });
+      this.pushResults(results, currentDate, highestMax, lowestMin);
     }
-
     return results;
   }
+
+
+  /**
+   * This function returns just the relevant date data required for comparision.
+   * @param {string} dateTimeString 
+   * @returns 
+   */
+  extractDate(dateTimeString) {
+    return dateTimeString.slice(0, 10);
+  }
+
+
+/**
+ * This function pushes the Calculated days result to the results array
+ * @param {array} results 
+ * @param {string} currentDate
+ * @param {number} highestMax 
+ * @param {number} lowestMin  
+ */
+  pushResults(results, currentDate, highestMax, lowestMin) {
+    results.push({
+      date: currentDate,
+      highestMax: highestMax,
+      lowestMin: lowestMin,
+    });
+  }
+
+
+  /**
+   * This function compares current highest and lowest values for the day with record from the loop 
+   * if they are the lowest or highest the corresponding current high or low is updated.
+   * @param {object} currentMaxMin 
+   * @param {object} record 
+   * @returns 
+   */
+  updateHighestMaxLowestMin(currentMaxMin: {highestMax, lowestMin}, record): {highestMax, lowestMin} {
+    const highestMax = currentMaxMin.highestMax === undefined || record.main.temp_max > currentMaxMin.highestMax
+      ? record.main.temp_max
+      : currentMaxMin.highestMax;
+    const lowestMin = currentMaxMin.lowestMin === undefined || record.main.temp_min < currentMaxMin.lowestMin
+      ? record.main.temp_min
+      : currentMaxMin.lowestMin;
+
+    return {highestMax, lowestMin};
+  }
+
+  
 }
 
 
