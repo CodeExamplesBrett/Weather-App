@@ -21,14 +21,28 @@
         <div class="overview">
             <h3>5 Day Forecast</h3>
             <ul *ngIf="combo.length">
-                <li *ngFor="let day of combo">
-                    <div>
+                <li *ngFor="let day of combo; let i = index">
+                    <div (click)="toggleDayDetails(i)">
                         <!-- pipe to show just the desired element of data format returned from the server -->
-                    <span class="forecast-date">{{ day[1].dt_txt | date: 'EEE, MMM dd' }}</span>
+                    <span [class.bold]="dayDetailsVisible[i]" class="forecast-date">{{ day[1].dt_txt | date: 'EEE, MMM dd' }}</span>
                     <img src="./assets/img/{{day[1].weather[0].icon}}.png">
-                    <span>{{ day[0].lowestMin | number: '1.0-0'}} / {{ day[0].highestMax | number: '1.0-0'}} °C </span>
-                    <span class="forecast-description"> {{ day[1].weather[0].description }}</span>
+                    <span [class.bold]="dayDetailsVisible[i]">{{ day[0].highestMax | number: '1.0-0'}}  / {{ day[0].lowestMin | number: '1.0-0'}}°C </span>
+                    <span [class.bold]="dayDetailsVisible[i]" class="forecast-description"> {{ day[1].weather[0].description }}</span>
+                    
+                    </div>
+                    <div class="day-details"  [class.dnone]="!dayDetailsVisible[i]">
+                        <img src="./assets/img/{{day[1].weather[0].icon}}.png">
+                        <div class="day-details-content">
+                            <span class="day-details-description">{{ day[1].weather[0].description }}</span>
+                            <span>The high will be {{ day[0].highestMax | number: '1.0-0'}} °C The low will be {{ day[0].lowestMin | number: '1.0-0'}} °C </span>
+                            <div>
+                                <img src="./assets/img/gauge.png"><span>{{ currentWeatherData.pressure }} hPa</span><span class="humidity-text">Humidity: {{ currentWeatherData.humidity }}%</span>
+                            </div>
 
+                        </div>
+                        
+                        
+                        
                     </div>
                     
                     

@@ -23,6 +23,8 @@ export class WeatherAppMainComponent implements OnInit {
 
   fiveDayForecastPopulated = false;
 
+  dayDetailsVisible: { [key: number]: boolean } = {};
+
   currentDate: string | undefined;
   highestMax: number | undefined;
   lowestMin: number | undefined;
@@ -62,6 +64,8 @@ export class WeatherAppMainComponent implements OnInit {
     this.currentWeatherData.icon = this.currentWeatherData.weather[0].icon;
     this.currentWeatherData.feelsLike = this.currentWeatherData.main.feels_like;
     this.currentWeatherData.description = this.currentWeatherData.weather[0].description;
+    this.currentWeatherData.pressure = this.currentWeatherData.main.pressure;
+    this.currentWeatherData.humidity = this.currentWeatherData.main.humidity;
 
     console.log('temp', this.currentWeatherData.temp)
     console.log('all weather',this.currentWeatherData);
@@ -224,15 +228,11 @@ export class WeatherAppMainComponent implements OnInit {
 
     return {highestMax, lowestMin};
   }
+
+  toggleDayDetails(index: number): void {
+    this.dayDetailsVisible[index] = !this.dayDetailsVisible[index];
+    console.log('visable', this.dayDetailsVisible)
+  }
 }
-
-
-
-
- 
-
-
-
-  
 
 

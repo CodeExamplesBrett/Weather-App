@@ -1,6 +1,6 @@
 #weather-main-left {
   padding: 20px;
-  height: 167px;
+  height: 203px;
   border-radius: 10px;
   background: rgba(190, 102, 102, 0.5);
   // background: linear-gradient(180deg, rgba(0,0,0,1) 0%, rgba(8,7,42,1));
@@ -14,6 +14,7 @@
 
 .date {
   color: #ea6e4b;
+  font-size: 17px;
 }
 
 .city {
@@ -59,25 +60,32 @@ li {
     border-radius: 30px;
     :hover {
         background-color: rgba(0, 0, 0, 0.05);
+        
       }
     div {
       display: flex;
       align-items: center;
       color: #48484a;
+      cursor: pointer;
       :hover {
         background-color: transparent;
       }
       
     }
+    img {
+        height: 60px;
+        margin: 0px 0px 0px 0px;
+      }
   }
   
-  img {
-    height: 60px;
-    margin: 0px 0px 0px 0px;
-  }
+  
 
 .forecast-date {
   width: 100px;
+}
+
+.bold{
+    font-weight: 500;
 }
 
 .forecast-description {
@@ -95,6 +103,43 @@ li {
   justify-content: center;
   align-items: center;
   height: 100vh !important;
+}
+
+.dnone{
+    display: none !important;
+}
+
+.day-details{
+    background-color: rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    padding: 8px;
+}
+
+.day-details-content{
+    display: flex !important;
+    flex-direction: column;
+    align-items: flex-start !important;
+    img{
+        height: 18px;
+        margin-right: 5px;
+        margin-top: 8px;
+    }
+    span{
+        margin-top: 5px;
+    }
+   
+}
+
+.day-details-description{
+    color: #48484a;
+  font-size: 17px;
+  font-weight: 500;
+  margin-bottom: 8px;
+}
+
+.humidity-text{
+    
+    margin-left: 30px;
 }
 
 @media(max-width: 680px){
