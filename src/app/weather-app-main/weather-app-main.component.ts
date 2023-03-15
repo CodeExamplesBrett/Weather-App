@@ -8,6 +8,8 @@ import { Component, OnInit } from '@angular/core';
 export class WeatherAppMainComponent implements OnInit {
   constructor() { }
 
+  currentTime = new Date();
+
   currentWeatherData:any ={};
   forecastData:any = {};
 
@@ -36,11 +38,11 @@ export class WeatherAppMainComponent implements OnInit {
   */
   async getWeatherData() {
     try {
-      const response = await fetch(`http://api.openweathermap.org/data/2.5/weather?q=Munich&appid=${this.API_Key}&units=metric`);
+      const response = await fetch(`http://api.openweathermap.org/data/2.5/weather?q=Bad Rodach&appid=${this.API_Key}&units=metric`);
       const data = await response.json();
       this.setWeatherData(data);
   
-      const response_2 = await fetch(`http://api.openweathermap.org/data/2.5/forecast?q=Munich&appid=${this.API_Key}&units=metric`);
+      const response_2 = await fetch(`http://api.openweathermap.org/data/2.5/forecast?q=Bad Rodach&appid=${this.API_Key}&units=metric`);
       const data_2 = await response_2.json();
       this.setForecastData(data_2);
     } catch (error) {
@@ -58,6 +60,8 @@ export class WeatherAppMainComponent implements OnInit {
     this.currentWeatherData.temp = this.currentWeatherData.main.temp.toFixed(0);
     this.currentWeatherData.city = this.currentWeatherData.name;
     this.currentWeatherData.icon = this.currentWeatherData.weather[0].icon;
+    this.currentWeatherData.feelsLike = this.currentWeatherData.main.feels_like;
+    this.currentWeatherData.description = this.currentWeatherData.weather[0].description;
 
     console.log('temp', this.currentWeatherData.temp)
     console.log('all weather',this.currentWeatherData);
@@ -220,8 +224,6 @@ export class WeatherAppMainComponent implements OnInit {
 
     return {highestMax, lowestMin};
   }
-
-  
 }
 
 

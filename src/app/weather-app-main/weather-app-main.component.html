@@ -1,12 +1,20 @@
 <div class="weather-container">
-    <div id="weather-main-left">
-        <div class="component-row">{{currentWeatherData.temp}}°C</div>
+    <div class="main">
 
-        <!-- ngIF first check to see if the icon code has been downloaded -->
+    
+    <div id="weather-main-left">
+        <div class="component-row date">{{ currentTime| date:"EE MMM d HH:mm" }}</div>
+        <div class="component-row city">{{currentWeatherData.city}}</div>
+        
+
+        <div class="icon-container">
+            <!-- ngIF first check to see if the icon code has been downloaded -->
         <img *ngIf="currentWeatherData.icon" src="./assets/img/{{currentWeatherData.icon}}.png">
-        <div class="component-row">{{currentWeatherData.city}}</div>
-        <div class="component-row"></div>
-        <div class="component-row"></div>
+        <div>{{currentWeatherData.temp}}°C</div>
+        </div>
+        <div class="component-row description"><span>Feels like: {{ currentWeatherData.feelsLike | number: '1.0-0'}} °C. 
+            {{ currentWeatherData.description }}
+        </span></div>
     </div>
 
     <div id="weather-main-right">
@@ -14,11 +22,15 @@
             <h3>5 Day Forecast</h3>
             <ul *ngIf="combo.length">
                 <li *ngFor="let day of combo">
-                    <!-- pipe to show just the desired element of data format returned from the server -->
-                    {{ day[1].dt_txt | date: 'EEE, MMM dd' }}
+                    <div>
+                        <!-- pipe to show just the desired element of data format returned from the server -->
+                    <span class="forecast-date">{{ day[1].dt_txt | date: 'EEE, MMM dd' }}</span>
                     <img src="./assets/img/{{day[1].weather[0].icon}}.png">
-                    <span>{{ day[0].lowestMin | number: '1.0-0'}} / {{ day[0].highestMax | number: '1.0-0'}} </span>
-                    <span>{{ day[1].weather[0].main }}</span>
+                    <span>{{ day[0].lowestMin | number: '1.0-0'}} / {{ day[0].highestMax | number: '1.0-0'}} °C </span>
+                    <span class="forecast-description"> {{ day[1].weather[0].description }}</span>
+
+                    </div>
+                    
                     
                 </li>
             </ul>
@@ -28,5 +40,6 @@
 
 
 
+    </div>
     </div>
 </div>
