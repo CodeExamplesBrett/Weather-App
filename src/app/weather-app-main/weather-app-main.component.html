@@ -20,9 +20,11 @@
     <div id="weather-main-right">
         <div class="overview">
             <h3>5 Day Forecast</h3>
+            <!-- *ngIf used to wait for data to be writen to array "combo" -->
             <ul *ngIf="combo.length">
                 <li *ngFor="let day of combo; let i = index">
-                    <div (click)="toggleDayDetails(i)">
+                    <!-- *ngIf used to wait for data to be writen to array "combo" -->
+                    <div *ngIf="day[1]" (click)="toggleDayDetails(i)">
                         <!-- pipe to show just the desired element of data format returned from the server -->
                     <span [class.bold]="dayDetailsVisible[i]" class="forecast-date">{{ day[1].dt_txt | date: 'EEE, MMM dd' }}</span>
                     <img src="./assets/img/{{day[1].weather[0].icon}}.png">
@@ -30,7 +32,8 @@
                     <span [class.bold]="dayDetailsVisible[i]" class="forecast-description"> {{ day[1].weather[0].description }}</span>
                     
                     </div>
-                    <div class="day-details"  [class.dnone]="!dayDetailsVisible[i]">
+                    <!-- *ngIf used to wait for data to be writen to array "combo" -->
+                    <div *ngIf="day[1]" class="day-details"  [class.dnone]="!dayDetailsVisible[i]">
                         <img src="./assets/img/{{day[1].weather[0].icon}}.png">
                         <div class="day-details-content">
                             <span class="day-details-description">{{ day[1].weather[0].description }}</span>

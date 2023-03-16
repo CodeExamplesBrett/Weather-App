@@ -28,10 +28,24 @@ export class WeatherAppMainComponent implements OnInit {
   currentDate: string | undefined;
   highestMax: number | undefined;
   lowestMin: number | undefined;
-  
+  intervalId: any;
 
+
+  /**
+   * This function initiates the component with the lifecycle hook ngOnInit()
+   * setInterval is then used to update the data every 10 minutes
+   */
   ngOnInit(): void {
     this.getWeatherData();
+    this.intervalId = setInterval(()=> {
+      this.getWeatherData();
+      console.log('******************* RELOADED ******************************')
+    }, 600000);   // Call getWeatherData() every 600000 milliseconds (10 minutes)
+  }
+
+
+  ngOnDestroy(): void {
+    clearInterval(this.intervalId); // Clear the interval when the component is destroyed
   }
 
 
@@ -40,11 +54,11 @@ export class WeatherAppMainComponent implements OnInit {
   */
   async getWeatherData() {
     try {
-      const response = await fetch(`http://api.openweathermap.org/data/2.5/weather?q=Bad Rodach&appid=${this.API_Key}&units=metric`);
+      const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=Bad Rodach&appid=${this.API_Key}&units=metric`);
       const data = await response.json();
       this.setWeatherData(data);
   
-      const response_2 = await fetch(`http://api.openweathermap.org/data/2.5/forecast?q=Bad Rodach&appid=${this.API_Key}&units=metric`);
+      const response_2 = await fetch(`https://api.openweathermap.org/data/2.5/forecast?q=Bad Rodach&appid=${this.API_Key}&units=metric`);
       const data_2 = await response_2.json();
       this.setForecastData(data_2);
     } catch (error) {
@@ -140,7 +154,9 @@ export class WeatherAppMainComponent implements OnInit {
    */
   combineData(){
     if (this.fiveDayForecastPopulated){
-      this.combo = this.results.map((el, index) => [el, this.fiveDayForecast[index]]);
+      this.combo.length = 0;
+      this.results.forEach((el, index) => this.combo.push([el, this.fiveDayForecast[index]]));
+
       console.log('the combo', this.combo)
     } else {
       console.log('fiveDayForecast not populated yet')
@@ -229,6 +245,10 @@ export class WeatherAppMainComponent implements OnInit {
     return {highestMax, lowestMin};
   }
 
+  /**
+   * This function toggles the details for each day of the forecast -- visible / hidden.
+   * @param {number} index - index of weather details for that day with corresponding boolean true/false
+   */
   toggleDayDetails(index: number): void {
     this.dayDetailsVisible[index] = !this.dayDetailsVisible[index];
     console.log('visable', this.dayDetailsVisible)
